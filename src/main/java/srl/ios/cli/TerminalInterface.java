@@ -2,8 +2,8 @@ package srl.ios.cli;
 
 import java.util.Scanner;
 
-public final class Cli {
-    private Cli() {
+public final class TerminalInterface {
+    private TerminalInterface() {
     }
 
     public static String getWelcomeString() {

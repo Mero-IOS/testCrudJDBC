@@ -1,6 +1,6 @@
 package srl.ios;
 
-import srl.ios.cli.Cli;
+import srl.ios.cli.TerminalInterface;
 import srl.ios.sqlconnector.SqlConnection;
 
 public final class App {
@@ -9,7 +9,7 @@ public final class App {
     }
 
     public static void main(String[] args) {
-        Cli.start();
+        TerminalInterface.start();
         SqlConnection.disconnect();
     }
 

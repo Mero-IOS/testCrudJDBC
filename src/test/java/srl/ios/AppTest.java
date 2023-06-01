@@ -2,7 +2,7 @@ package srl.ios;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import srl.ios.cli.Cli;
+import srl.ios.cli.TerminalInterface;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -36,6 +36,6 @@ class AppTest {
         App.main(new String[0]);
         String testmsg = "\nFunzionalità in fase di testing, presenti solo Unit Test."
                 + "\nNessuna connessione da interrompere.\n";
-        assertEquals(Cli.getWelcomeString() + testmsg, getStringOutput());
+        assertEquals(TerminalInterface.getWelcomeString() + testmsg, getStringOutput());
     }
 }
