@@ -7,7 +7,7 @@ public final class TerminalInterface {
     }
 
     public static String getWelcomeString() {
-        return TextConstants.LINE + "\n" + TextConstants.INTRO_STRING + "\n" + TextConstants.INSTRUCTIONS;
+        return TextConstants.SEPARATOR + "\n" + TextConstants.INTRO_STRING + "\n" + TextConstants.INSTRUCTIONS;
     }
 
     public static ChosenProgram getChosenProgram(String inputtedProgram) {
