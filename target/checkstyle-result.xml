@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.12.0">
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\main\java\srl\ios\App.java">
+</file>
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\main\java\srl\ios\cli\ChosenProgram.java">
+</file>
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\main\java\srl\ios\cli\Cli.java">
+</file>
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\main\java\srl\ios\cli\TextConstants.java">
+</file>
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\main\java\srl\ios\models\records\Cliente.java">
+</file>
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\main\java\srl\ios\sqlconnector\DbEnvReader.java">
+</file>
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\main\java\srl\ios\sqlconnector\RunQuery.java">
+</file>
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\main\java\srl\ios\sqlconnector\SqlConnection.java">
+</file>
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\test\java\srl\ios\AppTest.java">
+</file>
+<file name="F:\zzFile Personali\iossrl\Tirocinio\progetti\intradoc\src\test\java\srl\ios\CrudClientiTest.java">
+</file>
+</checkstyle>

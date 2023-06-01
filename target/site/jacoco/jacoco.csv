@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+intradoc,srl.ios.models.records,Cliente,4,89,2,6,1,23,2,9,0,7
+intradoc,srl.ios,App,0,3,0,0,0,3,0,1,0,1
+intradoc,srl.ios.cli,Cli,7,46,2,2,3,18,2,4,0,4
+intradoc,srl.ios.cli,ChosenProgram,0,33,0,0,0,2,0,1,0,1
+intradoc,srl.ios.sqlconnector,SqlConnection,18,17,0,2,7,10,0,4,0,3
+intradoc,srl.ios.sqlconnector,RunQuery,30,202,1,11,12,60,1,12,0,7
+intradoc,srl.ios.sqlconnector,DbEnvReader,0,19,0,0,0,6,0,4,0,4

@@ -1,0 +1,9 @@
+srl\ios\cli\Cli.class
+srl\ios\sqlconnector\RunQuery.class
+srl\ios\sqlconnector\SqlConnection.class
+srl\ios\cli\ChosenProgram.class
+srl\ios\cli\Cli$1.class
+srl\ios\models\records\Cliente.class
+srl\ios\cli\TextConstants.class
+srl\ios\App.class
+srl\ios\sqlconnector\DbEnvReader.class

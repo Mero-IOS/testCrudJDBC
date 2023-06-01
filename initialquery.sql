@@ -1,0 +1,14 @@
+CREATE DATABASE intradoc CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE intradoc;
+CREATE TABLE clienti (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, ragione_sociale VARCHAR(100) NOT NULL) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+CREATE TABLE clienti_professionisti_preferiti (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id_professionista INT(11) NOT NULL, id_cliente INT(11) NOT NULL) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+CREATE TABLE commessa (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, cliente INT(11) NOT NULL, sub_descrizione VARCHAR(300) NOT NULL, stato INT(11) NOT NULL) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+CREATE TABLE commessa_attivita (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, id_commessa INT(11) NOT NULL, tipo_attivita INT(11) NOT NULL, lingua_da INT(11) NOT NULL, lingua_a INT(11) NOT NULL, data_ora_riconsegna DATETIME NOT NULL) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+CREATE TABLE professionisti (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, cognome VARCHAR(50) DEFAULT NULL, nome VARCHAR(50) NOT NULL) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+CREATE TABLE professionisti_lingue_attive (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, lingua INT(11) NOT NULL, id_professionista INT(11) NOT NULL, UNIQUE KEY lingua (lingua, id_professionista)) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+CREATE TABLE tbl_lingue_s1 (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, descrizione VARCHAR(50) NOT NULL, UNIQUE KEY descrizione (descrizione)) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+INSERT INTO tbl_lingue_s1 (id, descrizione) VALUES (1, 'Italiano'), (2, 'Inglese'), (3, 'Francese'), (4, 'Spagnolo'), (5, 'Tedesco'), (6, 'Polacco'), (7, 'Russo'), (8, 'Olandese'), (9, 'Danese'), (10, 'Finlandese'), (11, 'Svedese'), (12, 'Norvegese'), (13, 'Greco'), (14, 'Portoghese');
+CREATE TABLE tbl_stato_commessa (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, descrizione TEXT NOT NULL, colore VARCHAR(50) NOT NULL, font_color VARCHAR(50) NOT NULL) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+INSERT INTO tbl_stato_commessa (id, descrizione, colore, font_color) VALUES (1, 'Aperta', '#ffffff', '#000000'), (2, 'Consegnata', '#85e381', '#000000'), (3, 'Valorizzata per Fatturazione', '#bfbfbf', '#000000'), (4, 'Output per SWING', '#6eb6e6', '#000000'), (5, 'Non Fatturare', '#f5d889', '#000000');
+CREATE TABLE tbl_tipologia_tariffa_s3 (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, descrizione VARCHAR(50) DEFAULT NULL, UNIQUE KEY descrizione (descrizione)) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+INSERT INTO tbl_tipologia_tariffa_s3 (id, descrizione) VALUES (1, 'Impaginazione'), (2, 'Traduzione'), (3, 'Revisione'), (4, 'Riesame'), (5, 'Sbobinatura'), (6, 'Marche da bollo'), (7, 'Interpretariato'), (8, 'Rilettura');

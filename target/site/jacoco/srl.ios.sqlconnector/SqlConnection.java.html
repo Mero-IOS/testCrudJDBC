@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SqlConnection.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">intradoc</a> &gt; <a href="index.source.html" class="el_package">srl.ios.sqlconnector</a> &gt; <span class="el_source">SqlConnection.java</span></div><h1>SqlConnection.java</h1><pre class="source lang-java linenums">package srl.ios.sqlconnector;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public final class SqlConnection {
+
+    private static Connection dbConnected;
+
+    private SqlConnection() {
+    }
+
+    private static void connect() {
+        try {
+<span class="fc" id="L16">            dbConnected = DriverManager.getConnection(DbEnvReader.getDbUrl(), DbEnvReader.getDbUser(),</span>
+<span class="fc" id="L17">                    DbEnvReader.getDbPassword());</span>
+<span class="nc" id="L18">        } catch (SQLException e) {</span>
+<span class="nc" id="L19">            System.out.println(&quot;Database connection could not be establised: &quot; + e.getMessage());</span>
+<span class="fc" id="L20">        }</span>
+<span class="fc" id="L21">    }</span>
+
+    public static void disconnect() {
+        try {
+<span class="nc" id="L25">            dbConnected.close();</span>
+<span class="nc" id="L26">            dbConnected = null;</span>
+<span class="nc" id="L27">        } catch (SQLException e) {</span>
+<span class="nc" id="L28">            System.out.println(&quot;Eccezione SQL:&quot; + e.getMessage());</span>
+<span class="fc" id="L29">        } catch (NullPointerException e) {</span>
+<span class="fc" id="L30">            System.out.println(&quot;Nessuna connessione da interrompere.&quot;);</span>
+<span class="nc" id="L31">        }</span>
+<span class="fc" id="L32">    }</span>
+
+    public static Connection getConnection() {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (dbConnected == null) {</span>
+<span class="fc" id="L36">            connect();</span>
+        }
+<span class="fc" id="L38">        return dbConnected;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
