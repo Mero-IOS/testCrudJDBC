@@ -14,7 +14,8 @@ public class CrudClientiTest {
 
     @Test
     public void deleteCliente() {
-        Cliente.delete(1);
+        Cliente giacomo = new Cliente("Giacomo");
+        giacomo.delete();
     }
 
     @Test
@@ -27,7 +28,7 @@ public class CrudClientiTest {
 
     @Test
     public void readCliente() {
-        System.out.println(Cliente.read(2));
+        System.out.println(Cliente.getStringified(2));
     }
 
     @Test
@@ -44,7 +45,8 @@ public class CrudClientiTest {
     public void insertDeleteCliente() {
         String[] cliente = {"Giangiacomo"};
         Cliente.insert(cliente);
-        System.out.println(Cliente.findId("Giangiacomo"));
-        Cliente.delete(Cliente.findId("Giangiacomo"));
+        System.out.println(Cliente.find("Giangiacomo"));
+        Cliente giangiacomo = new Cliente(Cliente.find("Giangiacomo"));
+        giangiacomo.delete();
     }
 }

@@ -2,10 +2,15 @@ package srl.ios.models;
 
 import srl.ios.sqlconnector.RunQuery;
 
-public final class Cliente {
+public final class Cliente extends GenericRecord {
     private static String tableName = "clienti";
 
-    private Cliente() {
+    public Cliente(int id) {
+        super(tableName, id);
+    }
+
+    public Cliente(String ragioneSociale) {
+        super(tableName, "ragione_sociale", ragioneSociale);
     }
 
     public static void insert(String[] fields) {
@@ -22,9 +27,9 @@ public final class Cliente {
         }
     }
 
-    public static String read(int id) {
+    public static String getStringified(int id) {
         String sql = "SELECT * FROM " + tableName + " WHERE ID = ?;";
-        return RunQuery.getRecordById(sql, id);
+        return RunQuery.stringifyRecordById(sql, id);
     }
 
     public static void update(int id, String[] fields) {
@@ -36,17 +41,12 @@ public final class Cliente {
         }
     }
 
-    public static void delete(int id) {
-        String sql = "DELETE FROM " + tableName + " WHERE ID = ?;";
-        RunQuery.deleteRecordById(sql, id);
-    }
-
     public static String findRecord(String ragioneSociale) {
         String sql = "SELECT * FROM " + tableName + " WHERE ragione_sociale = ?;";
-        return RunQuery.getRecordByFieldValue(sql, ragioneSociale);
+        return RunQuery.getStringByFieldValue(sql, ragioneSociale);
     }
 
-    public static int findId(String ragioneSociale) {
+    public static int find(String ragioneSociale) {
         String sql = "SELECT * FROM " + tableName + " WHERE ragione_sociale = ?;";
         return RunQuery.getIndexByFieldValue(sql, ragioneSociale);
     }

@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class RunQuery {
     private RunQuery() {
@@ -32,7 +34,7 @@ public final class RunQuery {
         }
     }
 
-    public static String getRecordById(String query, int id) {
+    public static String stringifyRecordById(String query, int id) {
         ResultSet rs = null;
         String result = null;
         try (PreparedStatement pStatement = SqlConnection.getConnection().prepareStatement(query)) {
@@ -46,7 +48,7 @@ public final class RunQuery {
         return result;
     }
 
-    public static String getRecordByFieldValue(String query, String toFind) {
+    public static String getStringByFieldValue(String query, String toFind) {
         ResultSet rs = null;
         String result = null;
         try (PreparedStatement pStatement = SqlConnection.getConnection().prepareStatement(query)) {
@@ -105,4 +107,25 @@ public final class RunQuery {
         return record;
     }
 
+    public static Map<String, String> mapRecordById(String query, int id) throws SQLException {
+
+        PreparedStatement pStatement = SqlConnection.getConnection().prepareStatement(query);
+        pStatement.setInt(1, id);
+        ResultSet rs = pStatement.executeQuery();
+
+        if (rs.next()) {
+            ResultSetMetaData meta = rs.getMetaData();
+            int numColumns = meta.getColumnCount();
+            Map<String, String> data = new HashMap<>();
+            for (int i = 1; i <= numColumns; i++) {
+                String columnName = meta.getColumnName(i);
+                String columnValue = rs.getString(i);
+                data.put(columnName, columnValue);
+            }
+            return data;
+        } else {
+            return null;
+        }
+
+    }
 }
